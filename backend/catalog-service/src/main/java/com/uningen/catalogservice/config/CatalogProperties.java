@@ -1,0 +1,18 @@
+package com.uningen.catalogservice.config;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "catalog")
+public class CatalogProperties {
+    /**
+     * a message to greet users
+     */
+    private String greeting;
+    public String getGreeting(){
+        return greeting;
+    }
+
+    public void setGreeting(String greeting){
+        this.greeting = greeting;
+    }
+}

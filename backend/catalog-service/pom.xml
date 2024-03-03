@@ -48,6 +48,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -59,6 +60,7 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<profiles>testdata</profiles>
 				</configuration>
 			</plugin>
 		</plugins>

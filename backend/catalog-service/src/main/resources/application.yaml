@@ -6,3 +6,5 @@ server:
     threads:
       max: 50
       min-spare: 5
+catalog:
+  greeting: Welcome to the eCommerce Store!
