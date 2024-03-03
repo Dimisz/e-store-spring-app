@@ -8,7 +8,6 @@ import jakarta.validation.ValidatorFactory;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.math.BigDecimal;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -29,7 +28,7 @@ public class ProductValidationTests {
                         1L,
                         "Running Shoes",
                         "Perfect shoes for running",
-                        new BigDecimal(29.99),
+                        29.99,
                         "http://somepic.com",
                         "Sportwear",
                         "Nike",
@@ -47,7 +46,7 @@ public class ProductValidationTests {
                         null,
                         "Running Shoes",
                         "Perfect shoes for running",
-                        new BigDecimal(29.99),
+                        29.99,
                         "http://somepic.com",
                         "Sportwear",
                         "Nike",
@@ -67,7 +66,7 @@ public class ProductValidationTests {
                         1L,
                         "",
                         "Perfect shoes for running",
-                        new BigDecimal(29.99),
+                        29.99,
                         "http://somepic.com",
                         "Sportwear",
                         "Nike",
@@ -87,7 +86,7 @@ public class ProductValidationTests {
                         1L,
                         null,
                         "Perfect shoes for running",
-                        new BigDecimal(29.99),
+                        29.99,
                         "http://somepic.com",
                         "Sportwear",
                         "Nike",
@@ -105,7 +104,7 @@ public class ProductValidationTests {
                         1L,
                         "Running Shoes",
                         "",
-                        new BigDecimal(29.99),
+                        29.99,
                         "http://somepic.com",
                         "Sportwear",
                         "Nike",
@@ -125,7 +124,7 @@ public class ProductValidationTests {
                         1L,
                         "Running Shoes",
                         null,
-                        new BigDecimal(29.99),
+                        29.99,
                         "http://somepic.com",
                         "Sportwear",
                         "Nike",
@@ -136,25 +135,6 @@ public class ProductValidationTests {
         assertThat(violations).hasSize(2);
     }
 
-    @Test
-    void whenPriceIsNullThenValidationFails(){
-        Product product =
-                new Product(
-                        1L,
-                        "Running Shoes",
-                        "Perfect shoes for marathon",
-                        null,
-                        "http://somepic.com",
-                        "Sportwear",
-                        "Nike",
-                        5
-                );
-        Set<ConstraintViolation<Product>> violations =
-                validator.validate(product);
-        assertThat(violations).hasSize(1);
-        assertThat(violations.iterator().next().getMessage())
-                .isEqualTo("Product price should not be null");
-    }
 
     @Test
     void whenPriceIsNegativeThenValidationFails(){
@@ -163,7 +143,7 @@ public class ProductValidationTests {
                         1L,
                         "Running Shoes",
                         "Perfect shoes for marathon",
-                        new BigDecimal(-29.99),
+                        -29.99,
                         "http://somepic.com",
                         "Sportwear",
                         "Nike",
@@ -183,7 +163,7 @@ public class ProductValidationTests {
                         1L,
                         "Running Shoes",
                         "Perfect shoes for marathon",
-                        new BigDecimal(29.99),
+                        29.99,
                         "",
                         "Sportwear",
                         "Nike",
@@ -203,7 +183,7 @@ public class ProductValidationTests {
                         1L,
                         "Running Shoes",
                         "Perfect shoes for marathon",
-                        new BigDecimal(29.99),
+                        29.99,
                         null,
                         "Sportwear",
                         "Nike",
@@ -221,7 +201,7 @@ public class ProductValidationTests {
                         1L,
                         "Running Shoes",
                         "Perfect shoes for marathon",
-                        new BigDecimal(29.99),
+                        29.99,
                         "http://someurl.com",
                         "",
                         "Nike",
@@ -241,7 +221,7 @@ public class ProductValidationTests {
                         1L,
                         "Running Shoes",
                         "Perfect shoes for marathon",
-                        new BigDecimal(29.99),
+                        29.99,
                         "http://someurl.com",
                         null,
                         "Nike",
@@ -259,7 +239,7 @@ public class ProductValidationTests {
                         1L,
                         "Running Shoes",
                         "Perfect shoes for marathon",
-                        new BigDecimal(29.99),
+                        29.99,
                         "http://someurl.com",
                         "Sportswear",
                         "",
@@ -279,7 +259,7 @@ public class ProductValidationTests {
                         1L,
                         "Running Shoes",
                         "Perfect shoes for marathon",
-                        new BigDecimal(29.99),
+                        29.99,
                         "http://someurl.com",
                         "Sportswear",
                         null,
@@ -297,7 +277,7 @@ public class ProductValidationTests {
                         1L,
                         "Running Shoes",
                         "Perfect shoes for marathon",
-                        new BigDecimal(29.99),
+                        29.99,
                         "http://someurl.com",
                         "Sportswear",
                         "Nike",

@@ -7,8 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,9 +19,9 @@ public class Product {
     @NotBlank(message = "Product description should not be blank")
     @NotNull(message = "Product description should not be null")
     private String description;
-    @NotNull(message = "Product price should not be null")
+//    @NotNull(message = "Product price should not be null")
     @Positive(message = "Product price must be greater than zero")
-    private BigDecimal price;
+    private double price;
     @NotBlank(message = "Product picture url should not be blank")
     @NotNull(message = "Product picture url should not be null")
     private String pictureUrl;
