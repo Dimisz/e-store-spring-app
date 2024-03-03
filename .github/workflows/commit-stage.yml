@@ -8,6 +8,12 @@ jobs:
     permissions:
       contents: read
       security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [
+          backend/catalog-service,
+        ]
     steps:
       - name: Checkout source code
         uses: actions/checkout@v3
