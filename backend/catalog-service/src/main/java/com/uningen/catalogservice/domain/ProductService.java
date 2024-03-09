@@ -10,7 +10,7 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public Iterable<Product> viewAllProducts(){
+    public Iterable<Product> viewProductList(){
         return productRepository.findAll();
     }
 
@@ -20,10 +20,18 @@ public class ProductService {
     }
 
     public Product addProductToCatalog(Product product){
-        if(productRepository.existsById(product.getId())){
+
+        if(product.getId() != null && productRepository.existsById(product.getId())){
             throw new ProductAlreadyExistsException(product.getId());
         }
-        return productRepository.save(product);
+        return productRepository.save(Product.of(
+                product.getName(),
+                product.getDescription(),
+                product.getPrice(),
+                product.getPictureUrl(),
+                product.getCategory(),
+                product.getBrand(),
+                product.getQuantityInStock()));
     }
 
     public void removeProductFromCatalog(Long id){
@@ -33,18 +41,15 @@ public class ProductService {
     public Product editProductDetails(Long id, Product product){
         return productRepository.findById(id)
                 .map(existingProduct -> {
-                    Product productToUpdate = new Product(
-                            existingProduct.getId(),
-                            product.getName(),
-                            product.getDescription(),
-                            product.getPrice(),
-                            product.getPictureUrl(),
-                            product.getCategory(),
-                            product.getBrand(),
-                            product.getQuantityInStock()
-                    );
-                    return productRepository.save(productToUpdate);
-                })
-                .orElseGet(() -> addProductToCatalog(product));
+                    existingProduct.setName(product.getName());
+                    existingProduct.setDescription(product.getDescription());
+                    existingProduct.setPrice(product.getPrice());
+                    existingProduct.setPictureUrl(product.getPictureUrl());
+                    existingProduct.setCategory(product.getCategory());
+                    existingProduct.setBrand(product.getBrand());
+                    existingProduct.setQuantityInStock(product.getQuantityInStock());
+                    return productRepository.save(existingProduct);
+                }).orElseGet(() -> addProductToCatalog(product));
     }
+
 }

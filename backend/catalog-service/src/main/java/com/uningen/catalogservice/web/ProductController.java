@@ -17,17 +17,17 @@ public class ProductController {
 
     @GetMapping
     public Iterable<Product> getAllProducts(){
-        return productService.viewAllProducts();
+        return productService.viewProductList();
     }
 
     @GetMapping("{id}")
-    public Product getProductById(@PathVariable Long id){
+    public Product getById(@PathVariable Long id){
         return productService.viewProductDetails(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Product postNewProduct(@Valid @RequestBody Product product){
+    public Product postProduct(@Valid @RequestBody Product product){
         return productService.addProductToCatalog(product);
     }
 
@@ -38,7 +38,7 @@ public class ProductController {
     }
 
     @PutMapping("{id}")
-    public Product putProduct(@PathVariable Long id, @Valid @RequestBody Product product){
+    public Product putBook(@PathVariable Long id, @Valid @RequestBody Product product){
         return productService.editProductDetails(id, product);
     }
 }

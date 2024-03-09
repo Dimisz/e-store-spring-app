@@ -3,12 +3,10 @@ package com.uningen.catalogservice.data;
 import com.uningen.catalogservice.domain.Product;
 import com.uningen.catalogservice.domain.ProductRepository;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@Profile("testdata")
 public class ProductDataLoader {
     private final ProductRepository productRepository;
 
@@ -17,9 +15,10 @@ public class ProductDataLoader {
     }
 
     @EventListener(ApplicationReadyEvent.class)
-    public void loadProductTestData(){
-        productRepository.save(new Product(
-                1L,
+    public void loadProductsTestData(){
+        productRepository.deleteAll();
+        productRepository.save(Product.of(
+//                1L,
                 "Brown Brim",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 24.99,
@@ -28,8 +27,8 @@ public class ProductDataLoader {
                 "Hats",
                 20
         ));
-        productRepository.save(new Product(
-                2L,
+        productRepository.save(Product.of(
+//                2L,
                 "Blue Beanie",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 17.99,
@@ -38,8 +37,9 @@ public class ProductDataLoader {
                 "Hats",
                 20
         ));
-        productRepository.save(new Product(
-                3L,
+
+        productRepository.save(Product.of(
+//                3L,
                 "Brown Cowboy",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 34.99,
@@ -48,8 +48,8 @@ public class ProductDataLoader {
                 "Hats",
                 20
         ));
-        productRepository.save(new Product(
-                4L,
+        productRepository.save(Product.of(
+//                4L,
                 "Grey Brim",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 24.99,
@@ -58,8 +58,8 @@ public class ProductDataLoader {
                 "Hats",
                 20
         ));
-        productRepository.save(new Product(
-                5L,
+        productRepository.save(Product.of(
+//                5L,
                 "Green Beanie",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 17.99,
@@ -68,8 +68,8 @@ public class ProductDataLoader {
                 "Hats",
                 20
         ));
-        productRepository.save(new Product(
-                6L,
+        productRepository.save(Product.of(
+//                6L,
                 "Palm Tree Cap",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 13.99,
@@ -78,8 +78,8 @@ public class ProductDataLoader {
                 "Hats",
                 20
         ));
-        productRepository.save(new Product(
-                7L,
+        productRepository.save(Product.of(
+//                7L,
                 "Red Beanie",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 17.99,
@@ -88,8 +88,8 @@ public class ProductDataLoader {
                 "Hats",
                 20
         ));
-        productRepository.save(new Product(
-                8L,
+        productRepository.save(Product.of(
+//                8L,
                 "Wolf Cap",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 13.99,
@@ -98,8 +98,8 @@ public class ProductDataLoader {
                 "Hats",
                 20
         ));
-        productRepository.save(new Product(
-                9L,
+        productRepository.save(Product.of(
+//                9L,
                 "Blue Snapback",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 15.99,
@@ -108,8 +108,8 @@ public class ProductDataLoader {
                 "Hats",
                 20
         ));
-        productRepository.save(new Product(
-                10L,
+        productRepository.save(Product.of(
+//                10L,
                 "Adidas NMD",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 219.99,
@@ -118,8 +118,8 @@ public class ProductDataLoader {
                 "Adidas",
                 20
         ));
-        productRepository.save(new Product(
-                11L,
+        productRepository.save(Product.of(
+//                11L,
                 "Adidas Yeezy",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 279.99,
@@ -128,8 +128,8 @@ public class ProductDataLoader {
                 "Adidas",
                 20
         ));
-        productRepository.save(new Product(
-                12L,
+        productRepository.save(Product.of(
+//                12L,
                 "Black Converse",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 109.99,
@@ -138,8 +138,8 @@ public class ProductDataLoader {
                 "Converse",
                 20
         ));
-        productRepository.save(new Product(
-                13L,
+        productRepository.save(Product.of(
+//                13L,
                 "Nike White AirForce",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 159.99,
@@ -148,8 +148,8 @@ public class ProductDataLoader {
                 "Nike",
                 20
         ));
-        productRepository.save(new Product(
-                14L,
+        productRepository.save(Product.of(
+//                14L,
                 "Nike Red High Tops",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 159.99,
@@ -158,8 +158,8 @@ public class ProductDataLoader {
                 "Nike",
                 20
         ));
-        productRepository.save(new Product(
-                15L,
+        productRepository.save(Product.of(
+//                15L,
                 "Nike Brown High Tops",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 159.99,
@@ -168,8 +168,8 @@ public class ProductDataLoader {
                 "Nike",
                 20
         ));
-        productRepository.save(new Product(
-                16L,
+        productRepository.save(Product.of(
+//                16L,
                 "Air Jordan Limited",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 189.99,
@@ -178,8 +178,8 @@ public class ProductDataLoader {
                 "Nike",
                 20
         ));
-        productRepository.save(new Product(
-                17L,
+        productRepository.save(Product.of(
+//                17L,
                 "Timberlands",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 199.99,
@@ -188,8 +188,8 @@ public class ProductDataLoader {
                 "Timberlands",
                 20
         ));
-        productRepository.save(new Product(
-                18L,
+        productRepository.save(Product.of(
+//                18L,
                 "Black Jean Shearling",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 124.99,
@@ -198,8 +198,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                19L,
+        productRepository.save(Product.of(
+//                19L,
                 "Blue Jean Jacket",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 89.99,
@@ -208,8 +208,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                20L,
+        productRepository.save(Product.of(
+//                20L,
                 "Grey Jean Jacket",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 89.99,
@@ -218,8 +218,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                21L,
+        productRepository.save(Product.of(
+//                21L,
                 "Brown Shearling",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 164.99,
@@ -228,8 +228,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                22L,
+        productRepository.save(Product.of(
+//                22L,
                 "Tan Trench",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 184.99,
@@ -238,8 +238,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                23L,
+        productRepository.save(Product.of(
+//                23L,
                 "Blue Tanktop",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 24.99,
@@ -248,8 +248,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                24L,
+        productRepository.save(Product.of(
+//                24L,
                 "Floral Blouse",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 19.99,
@@ -258,8 +258,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                25L,
+        productRepository.save(Product.of(
+//                25L,
                 "Floral Dress",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 29.99,
@@ -268,8 +268,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                26L,
+        productRepository.save(Product.of(
+//                26L,
                 "Red Dots Dress",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 79.99,
@@ -278,8 +278,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                27L,
+        productRepository.save(Product.of(
+//                27L,
                 "Striped Sweater",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 44.99,
@@ -288,8 +288,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                28L,
+        productRepository.save(Product.of(
+//                28L,
                 "Yellow Track Suit",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 134.99,
@@ -298,8 +298,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                29L,
+        productRepository.save(Product.of(
+//                29L,
                 "White Blouse",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 19.99,
@@ -308,8 +308,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                30L,
+        productRepository.save(Product.of(
+//                30L,
                 "Camo Down Vest",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 324.99,
@@ -318,8 +318,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                31L,
+        productRepository.save(Product.of(
+//                31L,
                 "Floral T-Shirt",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 19.99,
@@ -328,8 +328,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                32L,
+        productRepository.save(Product.of(
+//                32L,
                 "Black & White Longsleeve",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 24.99,
@@ -338,8 +338,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                33L,
+        productRepository.save(Product.of(
+//                33L,
                 "Pink T-Shirt",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 24.99,
@@ -348,8 +348,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                34L,
+        productRepository.save(Product.of(
+//                34L,
                 "Jean Long Sleeve",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 39.99,
@@ -358,8 +358,8 @@ public class ProductDataLoader {
                 "Generic",
                 20
         ));
-        productRepository.save(new Product(
-                35L,
+        productRepository.save(Product.of(
+//                35L,
                 "Burgundy T-Shirt",
                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
                 24.99,
